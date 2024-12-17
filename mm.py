@@ -11,7 +11,7 @@ try:
     cursor = conn.cursor()
     
     # Query ดึงข้อมูลจากฟิลด์ ID และ Name
-    query = "SELECT ID, Name FROM table_name"  # เปลี่ยน table_name เป็นชื่อจริงของตารางคุณ
+    query = "mcode, mname"  # เปลี่ยน table_name เป็นชื่อจริงของตารางคุณ
     cursor.execute(query)
     
     # ดึงผลลัพธ์
