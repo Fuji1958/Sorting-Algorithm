@@ -1,7 +1,7 @@
 import sqlite3
 
 # ชื่อไฟล์ฐานข้อมูล
-database_file = '/mnt/data/mm.sql'
+database_file = 'mm.py'
 
 # เชื่อมต่อกับฐานข้อมูล
 conn = sqlite3.connect(database_file)
