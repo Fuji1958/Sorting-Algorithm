@@ -1,36 +1,57 @@
-import os
 import timeit
-start_time = timeit.default_timer()
 import re
+import os
+
+start_time = timeit.default_timer()
 
 def read_sql_file(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        content = file.readlines()
+    if not os.path.exists(file_path):
+        print(f"File not found: {file_path}")
+        return []
 
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # Extract only the data within the parentheses
+    pattern = r"\('([^']+)', '([^']+)', (\d+), (\d+), (\d+), '([^']+)', (\d+), '([^']+)', (\d+), '([^']+)', '([^']+)', '([^']+)', '([^']+)', (NULL|'[^']+'), '([^']+)', (NULL|\d+), (NULL|\d+), (NULL|\d+)\)"
+    matches = re.findall(pattern, content)
+    
+
+    # Convert matches to the desired format
     result = []
-    for line in content:
-        if line.strip():  # ตรวจสอบว่าบรรทัดไม่ว่าง
-            parts = line.strip('(),').split(', ')  # แยกด้วย ", " 
-            # เอาข้อมูลมาในรูปแบบที่เหมือนกัน
-            if len(parts) >= 6:
-                row = (parts[0], parts[1].strip("'"), parts[2], parts[3].strip("'"), parts[4], parts[5].strip("'"))
-                result.append(row)
+    for match in matches:
+        row = (
+            int(match[0]),  # First number
+            match[1]       # First string
+        )
+        result.append(row)
     return result
 
-# รายชื่อไฟล์ที่ต้องการประมวลผล
-file_path = "d:/work/mm.sql"
+# Specify the file to process
+file_path = os.path.abspath("D:/work/Sorting-Algorithm/mm.sql")
+print(f"Processing file: {file_path}")
 
+# Read data from the file
+data = read_sql_file(file_path)
 
-for file in file_path:
-    data = read_sql_file(file)
-    print(f"Processed data from {file}:")
-    for row in data[:5]:  # แสดงข้อมูล 5 บรรทัดแรกเพื่อดูตัวอย่าง
-        print(row[0], row[1])
-    print("\n")
-    
-with open('work/Convert/mm.txt', 'w', encoding='utf-8') as write_province:
-  for row in data:
-    write_province.write(f"{row[0]} {row[1]}\n")
+# Exit if no data was processed
+if not data:
+    print("No data processed. Exiting.")
+    exit()
 
+# Display sample data
+print(f"Processed data from {file_path}:")
+for row in data[:5]:  # Display the first 5 rows as a sample
+    print(" ".join(map(str, row)))
+print("\n")
+
+# Write the data to a new file
+output_file = 'D:/work/Sorting-Algorithm/Convert/Convert_mm.txt'
+os.makedirs(os.path.dirname(output_file), exist_ok=True)  # Create directories if needed
+with open(output_file, 'w', encoding='utf-8') as write_province:
+    for row in data:
+        write_province.write(" ".join(map(str, row)) + "\n")
+
+# Calculate processing time
 Timespent = timeit.default_timer() - start_time
 print(f"{Timespent} seconds")
