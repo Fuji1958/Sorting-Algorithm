@@ -18,7 +18,9 @@ def read_sql_file(file_path):
     return result
 
 # รายชื่อไฟล์ที่ต้องการประมวลผล
-files = ["mm.sql"]
+files = [
+    "work/mm.sql"
+    ]
 
 for file_path in files:
     data = read_sql_file(file_path)
