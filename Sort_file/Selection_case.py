@@ -13,14 +13,12 @@ def Selection_revers(a_list):
 
     return a_list
 
-
 file = 'amphoe' #เปลี่ยนชื่อไฟล์ได้
 list_file = []
 with open(f'Sorting-Algorithm/Convert/{file}.txt', 'r', encoding='utf-8') as files:
     for line in files:
         list_file.append(line.strip())
         
-
 list_reversed = Selection_revers(list_file)
 
 output_file = f'Sorting-Algorithm/Sort_file/output/Selection/{file}_Selection.txt'
