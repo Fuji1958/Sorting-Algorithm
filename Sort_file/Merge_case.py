@@ -28,15 +28,15 @@ def Merge_revers(a_list):
             s += 1
         d += 1
 
-    # Ensure correct indexing in the second while loop for left and right
+    
     while a < len(left):
         a_list[d] = left[a]
-        a += 1  # Increment a, not s
+        a += 1
         d += 1
 
     while s < len(right):
         a_list[d] = right[s]
-        s += 1  # Increment s here
+        s += 1 
         d += 1
 
     return a_list
