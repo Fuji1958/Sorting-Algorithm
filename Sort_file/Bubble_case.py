@@ -14,15 +14,12 @@ def Bubble_sort_revers(a_list):
             break
     return a_list
 
-
-
-file = 'tambol' #เปลี่ยนชื่อไฟล์ได้
+file = 'amphoe' #เปลี่ยนชื่อไฟล์ได้
 list_file = []
 with open(f'Sorting-Algorithm/Convert/{file}.txt', 'r', encoding='utf-8') as files:
     for line in files:
         list_file.append(line.strip())
         
-
 list_reversed = Bubble_sort_revers(list_file)
 
 output_file = f'Sorting-Algorithm/Sort_file/output/Bubble/{file}_Bubble.txt'

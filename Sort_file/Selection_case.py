@@ -14,7 +14,7 @@ def Selection_revers(a_list):
     return a_list
 
 
-file = 'tambol'
+file = 'amphoe'
 list_file = []
 with open(f'Sorting-Algorithm/Convert/{file}.txt', 'r', encoding='utf-8') as files:
     for line in files:

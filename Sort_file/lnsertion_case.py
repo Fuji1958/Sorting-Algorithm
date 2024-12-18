@@ -12,7 +12,7 @@ def lnsertion_revers(a_list):
         a_list[hole] = temp
     return a_list
 
-file = 'tambol' #เปลี่ยนชื่อไฟล์ได้
+file = 'amphoe' #เปลี่ยนชื่อไฟล์ได้
 list_file = []
 with open(f'Sorting-Algorithm/Convert/{file}.txt', 'r', encoding='utf-8') as files:
     for line in files:
