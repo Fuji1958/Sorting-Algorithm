@@ -26,7 +26,7 @@ for file_path in files:
         print(row[0], row[1])
     print("\n")
     
-with open('week4/tambol.txt', 'w', encoding='utf-8') as write_province:
+with open('work/Convert/tambol.txt', 'w', encoding='utf-8') as write_province:
   for row in data:
     write_province.write(f"{row[0]} {row[1]}\n")
 
