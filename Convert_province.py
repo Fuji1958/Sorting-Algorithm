@@ -46,7 +46,7 @@ for row in data[:5]:  # Display the first 5 rows as a sample
 print("\n")
 
 # Write the data to a new file
-output_file = 'D:/work/Sorting-Algorithm/Convert/Convert_province.txt'
+output_file = 'D:/work/Sorting-Algorithm/Convert/province.txt'
 os.makedirs(os.path.dirname(output_file), exist_ok=True)  # Create directories if needed
 with open(output_file, 'w', encoding='utf-8') as write_province:
     for row in data:
