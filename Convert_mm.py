@@ -18,13 +18,12 @@ def read_sql_file(file_path):
     return result
 
 # รายชื่อไฟล์ที่ต้องการประมวลผล
-files = [
-    "work/mm.sql"
-    ]
+file_path = "d:/work/mm.sql"
 
-for file_path in files:
-    data = read_sql_file(file_path)
-    print(f"Processed data from {file_path}:")
+
+for file in file_path:
+    data = read_sql_file(file)
+    print(f"Processed data from {file}:")
     for row in data[:5]:  # แสดงข้อมูล 5 บรรทัดแรกเพื่อดูตัวอย่าง
         print(row[0], row[1])
     print("\n")
